@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: db-secret
+
+data:
+  MYSQL_DATABASE: c2FsMDE= clinic
+  MYSQL_USER: dXNlcjE= root
+  MYSQL_PASSWORD: cGFzc3dhbHQ= bahgat
+  MYSQL_ROOT_PASSWORD: cGFzc3dhbHQxMjM= bahgat

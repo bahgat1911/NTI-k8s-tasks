@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: dog
+spec:
+  containers:
+  - name: golden
+    image: busybox
+    command: ["sleep", "3600"]
+  - name: cat
+    image: redis

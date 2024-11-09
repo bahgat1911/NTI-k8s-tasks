@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: volumes
+spec:
+  containers:
+  - name: container-1
+    image: ubuntu
+    command: ["/bin/sh", "-c"]
+    args: ["echo 'Hello from container 1' >> /data/shared-file.txt; sleep 60"]
+    volumeMounts:
+    - mountPath: /data
+      name: shared-volume
+
+  - name: container-2
+    image: busybox
+    command: ["/bin/sh", "-c"]
+    args: ["echo 'Hello from container 2' >> /data/shared-file.txt; sleep 60"]
+    volumeMounts:
+    - mountPath: /data
+      name: shared-volume
+
+  - name: container-3
+    image: debian
+    command: ["/bin/sh", "-c"]
+    args: ["cat /data/shared-file.txt; sleep 60"]
+    volumeMounts:
+    - mountPath: /data
+      name: shared-volume
+
+  volumes:
+  - name: shared-volume
+    emptyDir: {}
